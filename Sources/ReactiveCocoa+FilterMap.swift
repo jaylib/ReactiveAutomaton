@@ -20,7 +20,7 @@ extension SignalProtocol {
                 switch event {
                 case let .next(value):
                     if let mapped = transform(value) {
-                        observer.sendNext(mapped)
+                        observer.send(value: mapped)
                     }
                 case let .failed(error):
                     observer.sendFailed(error)

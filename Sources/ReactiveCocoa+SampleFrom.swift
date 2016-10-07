@@ -41,7 +41,7 @@ extension SignalProtocol {
                 switch event {
                 case let .next(value):
                     if let value2 = state.value {
-                        observer.sendNext((value, value2))
+                        observer.send(value: (value, value2))
                     }
                 case .completed:
                     observer.sendCompleted()
