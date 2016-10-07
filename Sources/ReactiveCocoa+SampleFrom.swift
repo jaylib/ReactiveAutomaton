@@ -30,23 +30,20 @@ extension SignalProtocol {
                 switch result {
                     case .success(let value):
                     state.value = value
-                default:
-                    if true {
-                    
-                    }
+                default: break
                 }
             }
 
             disposable += self.observe { event in
                 switch event {
-                case let .next(value):
+                case let .value(value):
                     if let value2 = state.value {
                         observer.send(value: (value, value2))
                     }
                 case .completed:
                     observer.sendCompleted()
                 case let .failed(error):
-                    observer.sendFailed(error)
+                    observer.send(error: error)
                 case .interrupted:
                     observer.sendInterrupted()
                 }
