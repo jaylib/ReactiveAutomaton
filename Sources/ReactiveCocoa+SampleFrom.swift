@@ -26,8 +26,13 @@ extension SignalProtocol {
             let state = Atomic<Value2?>(nil)
             let disposable = CompositeDisposable()
 
-            disposable += samplee.observeValues { value in
-                state.value = value
+            disposable += samplee.observeResult { result in
+                switch result {
+                    case .success(let value):
+                    state.value = value
+                default:
+                    { }
+                }
             }
 
             disposable += self.observe { event in
