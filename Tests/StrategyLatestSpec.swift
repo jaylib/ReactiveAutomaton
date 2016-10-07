@@ -51,7 +51,7 @@ class NextMappingLatestSpec: QuickSpec
                 // strategy = `.latest`
                 automaton = Automaton(state: .LoggedOut, input: signal, mapping: reduce(mappings), strategy: .latest)
 
-                automaton?.replies.observeNext { reply in
+                automaton?.replies.observeValues { reply in
                     lastReply = reply
                 }
 

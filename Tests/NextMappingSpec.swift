@@ -52,7 +52,7 @@ class NextMappingSpec: QuickSpec
                 // strategy = `.Merge`
                 automaton = Automaton(state: .LoggedOut, input: signal, mapping: reduce(mappings), strategy: .merge)
 
-                automaton?.replies.observeNext { reply in
+                automaton?.replies.observeValues { reply in
                     lastReply = reply
                 }
 
@@ -131,7 +131,7 @@ class NextMappingSpec: QuickSpec
                 // strategy = `.Merge`
                 automaton = Automaton(state: .LoggedOut, input: signal, mapping: mapping, strategy: .merge)
 
-                automaton?.replies.observeNext { reply in
+                automaton?.replies.observeValues { reply in
                     lastReply = reply
                 }
 

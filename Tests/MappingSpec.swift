@@ -42,7 +42,7 @@ class MappingSpec: QuickSpec
                 // NOTE: Use `concat` to combine all mappings.
                 automaton = Automaton(state: .LoggedOut, input: signal, mapping: reduce(mappings))
 
-                automaton?.replies.observeNext { reply in
+                automaton?.replies.observeValues { reply in
                     lastReply = reply
                 }
 
@@ -150,7 +150,7 @@ class MappingSpec: QuickSpec
                 }
 
                 automaton = Automaton(state: .LoggedOut, input: signal, mapping: mapping)
-                automaton?.replies.observeNext { reply in
+                automaton?.replies.observeValues { reply in
                     lastReply = reply
                 }
 

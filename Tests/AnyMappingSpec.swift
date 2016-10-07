@@ -33,7 +33,7 @@ class AnyMappingSpec: QuickSpec
 
                 automaton = Automaton(state: .state0, input: signal, mapping: reduce(mappings))
 
-                automaton?.replies.observeNext { reply in
+                automaton?.replies.observeValues { reply in
                     lastReply = reply
                 }
 

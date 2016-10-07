@@ -54,7 +54,7 @@ let automaton = Automaton(
 )
 
 // Observe state-transition replies (`.Success` or `.Failure`).
-automaton.replies.observeNext { reply in
+automaton.replies.observeValues { reply in
     print("received reply = \(reply)")
 }
 
