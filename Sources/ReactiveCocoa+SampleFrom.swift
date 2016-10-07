@@ -31,7 +31,9 @@ extension SignalProtocol {
                     case .success(let value):
                     state.value = value
                 default:
-                    { }
+                    if true {
+                    
+                    }
                 }
             }
 
